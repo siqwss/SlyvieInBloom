@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Slyvie in Bloom</title>
+  <style>
+    /* Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #fdfcf3;
+      font-family: 'Georgia', serif;
+      color: #8B2623;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Header section */
+    .main-header {
+      text-align: center;
+      animation: fadeInUp 2s ease-out;
+    }
+
+    .logo {
+      width: 240px;
+      height: auto;
+      margin-bottom: 5px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .shop-name {
+      font-size: 2.5rem;
+      color: #8B2623;
+      margin-top: 0;
+      animation: fadeIn 2.5s ease;
+    }
+
+    /* Button */
+    .shop-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 28px;
+      font-size: 1rem;
+      color: #FDFCF3;
+      background-color: #8B2623;
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      font-family: 'Georgia', serif;
+      transition: all 0.3s ease;
+      animation: fadeInUp 2.2s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .shop-button:hover {
+      background-color: #a3332f;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    .social-icons {
+  margin-top: 25px;
+  animation: fadeIn 2.5s ease;
+}
+
+.instagram-link {
+  color: #8B2623;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.instagram-link i {
+  margin-right: 8px;
+}
+
+.instagram-link:hover {
+  color: #a3332f;
+}
+
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <img src="SlyvieInBloom.png" alt="Slyvie in Bloom Logo" class="logo" />
+    <h1 class="shop-name">Slyvie in Bloom</h1>
+    <a href="#" class="shop-button">View Collection</a>
+    <div class="social-icons">
+  <a href="https://instagram.com/ii7iv24" target="_blank" class="instagram-link">
+    <i class="fab fa-instagram"></i> @ii7iv24
+  </a>
+</div>
+  </header>
+</body>
+</html>
