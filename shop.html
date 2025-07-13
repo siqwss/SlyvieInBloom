@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Slyvie in Bloom - Shop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #fdfcf3;
+      color: #8B2623;
+    }
+
+    /* Header */
+    .header {
+      background-color: #ffeef0;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #f4d7d7;
+      cursor: pointer;
+    }
+
+    .header-left i {
+      margin-right: 15px;
+      font-size: 18px;
+      color: #8B2623;
+      cursor: pointer;
+    }
+
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .header-center img {
+      width: 50px;
+    }
+
+    .header-center span {
+      font-size: 14px;
+      color: #8B2623;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    .header-right i {
+      font-size: 18px;
+      cursor: pointer;
+      color: #8B2623;
+    }
+
+    .currency {
+      color: #8B2623;
+    }
+
+    /* Shop Items */
+    .shop-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+
+    .item-card {
+      background: #fff8f8;
+      border-radius: 16px;
+      padding: 20px;
+      width: 220px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .item-card img {
+      width: 150px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+    }
+
+    .item-card h3 {
+      margin: 10px 0 8px;
+      font-weight: normal;
+    }
+
+    .item-card p {
+      margin: 0 0 15px;
+      font-size: 14px;
+      color: #8B2623;
+    }
+
+    .item-card button {
+      background-color: #7B4FFF;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 18px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .item-card button:hover {
+      background-color: #5e3fdb;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header" onclick="location.href='index.html'">
+    <div class="header-left">
+      <i class="fas fa-bars"></i>
+      <i class="fas fa-search"></i>
+    </div>
+    <div class="header-center">
+      <img src="SlyvieInBloom.png" alt="Slyvie Logo" />
+      <span>Slyvie in Bloom</span>
+    </div>
+    <div class="header-right">
+      <span class="currency">Saudi Arabia | SAR ﷼</span>
+      <i class="fas fa-user"></i>
+      <i id="cartBtn" class="fas fa-shopping-bag"></i>
+    </div>
+  </div>
+
+  <!-- Shop Items -->
+  <div class="shop-container" id="shopContainer">
+    <!-- Items added by JS -->
+  </div>
+
+  <script>
+    // Sample items - replace with real ones later
+    const items = [
+      { id: 1, name: "Crochet Flower", price: 50, img: "flower1.jpg" },
+      { id: 2, name: "Knitted Bow", price: 35, img: "bow1.jpg" },
+      { id: 3, name: "Wool Yarn Set", price: 80, img: "yarn1.jpg" }
+    ];
+
+    const shopContainer = document.getElementById('shopContainer');
+
+    function saveCart(cart) {
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function getCart() {
+      return JSON.parse(localStorage.getItem('cart')) || [];
+    }
+
+    function addToCart(item) {
+      const cart = getCart();
+      const existing = cart.find(i => i.id === item.id);
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({...item, qty: 1});
+      }
+      saveCart(cart);
+      alert(`${item.name} added to cart!`);
+    }
+
+    function renderItems() {
+      items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'item-card';
+        card.innerHTML = `
+          <img src="${item.img}" alt="${item.name}" />
+          <h3>${item.name}</h3>
+          <p>${item.price} SAR ﷼</p>
+          <button>Add to Cart</button>
+        `;
+        card.querySelector('button').addEventListener('click', () => addToCart(item));
+        shopContainer.appendChild(card);
+      });
+    }
+
+    renderItems();
+
+    // Cart icon click leads to cart page
+    document.getElementById('cartBtn').addEventListener('click', () => {
+      window.location.href = 'cart.html';
+    });
+  </script>
+
+</body>
+</html>

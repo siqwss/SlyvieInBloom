@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart - Slyvie in Bloom</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #fdfcf3;
+      color: #8B2623;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      background-color: #ffeef0;
+      padding: 15px 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #f4d7d7;
+    }
+
+    .header-left i {
+      font-size: 18px;
+      color: #8B2623;
+      cursor: pointer;
+    }
+
+    .header-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .header-center img {
+      width: 50px;
+    }
+
+    .header-center span {
+      font-size: 14px;
+      color: #8B2623;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-size: 14px;
+    }
+
+    .header-right i {
+      font-size: 18px;
+      color: #8B2623;
+      cursor: pointer;
+    }
+
+    .currency {
+      color: #8B2623;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff8f8;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
+    }
+
+    .cart-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #e4caca;
+      padding-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .cart-total {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: right;
+      margin-top: 20px;
+    }
+
+    .checkout-btn {
+      display: block;
+      width: 100%;
+      margin-top: 30px;
+      padding: 14px;
+      background-color: #8B2623;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .checkout-btn:hover {
+      background-color: #6a1e1e;
+    }
+
+    @media screen and (max-width: 600px) {
+      .cart-container {
+        margin: 20px;
+      }
+
+      .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cart-item span:last-child {
+        align-self: flex-end;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <i class="fas fa-arrow-left" onclick="history.back()"></i>
+    </div>
+    <div class="header-center">
+      <img src="SlyvieInBloom.png" alt="Slyvie Logo">
+      <span>Slyvie in Bloom</span>
+    </div>
+    <div class="header-right">
+      <span class="currency">SAR ﷼</span>
+      <i class="fas fa-user" onclick="window.location.href='index.html'"></i>
+    </div>
+  </div>
+
+  <!-- Cart Content -->
+  <div class="cart-container">
+    <h2>Your Shopping Cart</h2>
+
+    <div id="cart-items">
+      <div class="cart-item">
+        <span>🌸 Pink Crochet Rose</span>
+        <span>﷼45</span>
+      </div>
+
+      <div class="cart-item">
+        <span>🧶 Custom Hair Bow</span>
+        <span>﷼30</span>
+      </div>
+    </div>
+
+    <div class="cart-total" id="cart-total">Total: ﷼75</div>
+
+    <button class="checkout-btn" onclick="alert('Order placed!')">Place Order</button>
+  </div>
+
+</body>
+</html>
